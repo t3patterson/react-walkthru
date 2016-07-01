@@ -22,10 +22,11 @@ const app = function() {
       var collection = new EtsyCollection()
 
       collection.fetch().then( function(resData){
-        console.log( collection )
+        // 1
+        ReactDOM.render(<AppView listingsColl={collection}/>, document.querySelector('.container'))
+
       })
 
-      ReactDOM.render(<AppView/>, document.querySelector('.container'))
     },
 
     initialize: function(){

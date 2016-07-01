@@ -1,38 +1,28 @@
-#TIY Starter Kit
+#Notes
 
-Lightweight scaffolding and build tools to quickly and easily develop a web application. 
 
-  - transpiles scss into css
-  - transpiles es6 and jsx into es5
-  - concatenates all required/imported modules together into one minified file
-  - runs a simple express server that is deployable on heroku
-  
-##Getting started
+1. Pass collection thru props on `<AppView>`
 
-  - clone this repo with `git clone git@github.com:magentanova/tiy-starter-kit.git THE-LOCAL-FOLDER-YOU-WANT-TO-CREATE`
-  - disconnect from my remote repo and point to your own (see [Publishing](#publishing))
-  - `cd` into the local folder
-  - `npm install`
-  - `npm run go`
-  - that's it! visit [http://localhost:3000](http://localhost:3000) to make sure it's working
-  
-##Workflow
-  
-  - you'll *only* write code in the files in the `src/` folder
-  - every time you save in that folder, your code will be read and transpiled into the `dist/` folder. only files in `dist/` will be served up to the browser.
-  - view and test your app at localhost:3000
-  
-##Publishing
+2. Load Font Awesome and Get Skeleton
 
-  - disconnect your local repo from this one with `git remote remove origin`
-  - `hub create YOUR-APP-NAME` -- this will simultaneously (1) create you a remote repo with the given name and (2) create a local reference connecting the directory you're in to the remote you just created
-  - add, commit and push per usual
+3. Create Components MultiListingContainer and SingleItem JSX for multi-view
+```
+<div className="multi-view">
+  <h2 className="product-count">
+    <span>x</span><span> products</span>
+  </h2>
+  <div className="multi-listing align-children">
+    <div>
+      <img src="./images/food-pot.jpg"/>
+      <h5>Awesome zebra skirt...</h5>
+      <p><button>––</button></p>
+      <p><i className="fa fa-thumbs-o-down fa-3x" data-user_rating="boo"></i></p>
+    </div>
+  </div>
+</div>
+```
 
-##Deploying 
+4. Show products count in `<h2 className="product-count"></h2>`
+5. Create callback function at top level that puts thumbs down item on regrettables list
 
-The easiest thing to do is deploy to heroku. Once you have an account and you've installed the heroku command line tools, simply run: 
- 
-  - `heroku create YOUR-APP-NAME`
-  - `git push origin heroku`
-
-Have fun!
+6.  Create Text Box for Regrettables at Bottom
