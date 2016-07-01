@@ -21,50 +21,6 @@ app.set('view engine','ejs')
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({ extended: true }) );
 
-// --------------mongoose-------------
-const db = mongoose.connect('mongodb://localhost/dessertsAPI');
-
-let dessertSchema = new Schema({
-  title: String,
-  price: Number,
-  description: String,
-  uploadDate: Date
-})
-
-let DummyModel = mongoose.model('Dummy', dessertSchema)
-
-$.ajax({
-  url: '/api/v1/products',
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  data: {
-    
-  }
-}).then
-
-app.get('/api/v1/products', function(req, res){
-  DummyModel.find({}, function(err, results){
-        if(err) res.status(500).send(err)  // (4)
-          else res.json(results) // (5)
-      })
-})
-
-app.post('/api/v1/products', function(req, res){
-
-  req.body.uploadedAt = new Date()
-
-  let newRecord = new DummyModel(req.body)
-
-  newRecord.save()
-
-  res.status(201).send(newRecord)
-
-})
-
-// ------------------------
-
 
 // get the page
 
