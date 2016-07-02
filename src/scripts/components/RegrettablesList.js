@@ -46,9 +46,11 @@ var RegrettablesList = React.createClass({
         <div className="side-panel" >
           <h3>Regrettables</h3>
           <ul>
-            <li>Fedora with a feather in it</li>
-            <li>Box of random used clothing</li>
-            <li>Five lbs gummy bear</li>
+            { 
+              this.props.regrettablesArray.map(function(regret, i){
+                return <li key={i}>{regret}</li>
+              }) 
+            }
           </ul>
 
         </div>

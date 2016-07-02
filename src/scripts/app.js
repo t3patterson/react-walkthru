@@ -10,32 +10,29 @@ import AppView from './components/AppView.js'
 import {EtsyModel, EtsyCollection} from './models/etsyModel.js'
 // import * as Et from './models/etsyModel.js'
 
-const app = function() {
 
 
-  var AppRouter = Backbone.Router.extend({
-    routes: {
-      '*path' : 'showHomeView'
-    },
+var AppRouter = Backbone.Router.extend({
+  routes: {
+    '*path' : 'showHomeView'
+  },
 
-    showHomeView: function(){
-      var collection = new EtsyCollection()
+  showHomeView: function(){
+    var collection = new EtsyCollection()
 
-      collection.fetch().then( function(resData){
-        console.log( collection )
-      })
+    collection.fetch().then( function(resData){
+      // 1
+      console.log(collection)
+      ReactDOM.render(<AppView listingsColl={collection}/>, document.querySelector('.container'))
 
-      ReactDOM.render(<AppView/>, document.querySelector('.container'))
-    },
+    })
+  },
 
-    initialize: function(){
-      console.log('app routing')
-      Backbone.history.start()
-    }
-  })
+  initialize: function(){
+    console.log('app routing')
+    Backbone.history.start()
+  }
+})
 
+var whatever = new AppRouter()
 
-  var whatever = new AppRouter()
-}
-
-app()

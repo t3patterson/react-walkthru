@@ -1,9 +1,8 @@
+"use strict"
+
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser'); 
-
-let mongoose = require('mongoose'),
-    Schema = mongoose.Schema
 
 const PORT = process.env.PORT || 3000
 
